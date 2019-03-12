@@ -1,0 +1,124 @@
+commit 7e1542044451a355347d66fefa0dc7dbb0b5f058
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 14:03:36 2019 +0200
+
+    muutksia tehtiin, tiedostoja poistettiin
+
+ tiedostoja/file1  | 0
+ tiedostoja/file2  | 0
+ tiedostoja/file22 | 0
+ tiedostoja/file3  | 1 +
+ 4 files changed, 1 insertion(+)
+
+commit ece092d68082d8d14615c6a407a1f55edcc78be4
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 14:00:54 2019 +0200
+
+    file1, -2, -3 lisäys
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit a38b699fe6a0d0d38f6f894dd30bb8763a462062
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 13:32:41 2019 +0200
+
+    lisättiin kolmanteen rivi
+
+ kolmas.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 69eaf0f1ef5e84a49d7ca578d83f7f92a51ef7b0
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 13:30:32 2019 +0200
+
+    Valmista muutoksien jälkeen (eka ja kolmas)
+
+ eka.txt    | 2 +-
+ kolmas.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 2ad44ced28872f31b2c337690cf86d423bbcb398
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 13:27:21 2019 +0200
+
+    muutettiin tiedosto.txt -> eka.txt
+
+ eka.txt | 2338 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 2338 insertions(+)
+
+commit 195f70d73043b7488986486d767f98851d5ecf0c
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 13:24:44 2019 +0200
+
+    poistettiin toinen.txt
+
+ toinen.txt | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 67222affc5acd7038d742f24db1e4fe3956698bd
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 13:18:53 2019 +0200
+
+    kokeilin poistaa ja lisätä
+
+ tiedosto.txt | 65 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 34 insertions(+), 31 deletions(-)
+
+commit 2c2bce48ed8a17788b9483fb9ac683f446eb1922
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 13:15:21 2019 +0200
+
+    tein paljon lisätekstiä
+
+ tiedosto.txt | 2335 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 2334 insertions(+), 1 deletion(-)
+
+commit c23260f05833d3519802d7625fd7f095e45d8068
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 12:56:07 2019 +0200
+
+    lisättiin hakemisto stuff ja tiedosto jokin
+
+ stuff/jokin | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 820446ac68d39e34275f4039de866a665cbf5781
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 12:55:16 2019 +0200
+
+    muutettiin toisen ja kolmannen tiedoston sisältöä
+
+ kolmas.txt | 2 +-
+ toinen.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit f044e5d119aee4a248a212393965c558e46dfbcc
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 12:54:07 2019 +0200
+
+    kolmas tied. lisättiin
+
+ kolmas.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit ce3b48be61a044ce099f923f841c8ab9ae4a2897
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 12:43:00 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 3 +++
+ 2 files changed, 4 insertions(+)
+
+commit 7682c1f2b47f2df40cf912656a8b769ca5c39bad
+Author: Akseli N <virtualakseli@gmail.com>
+Date:   Tue Mar 12 12:41:00 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
