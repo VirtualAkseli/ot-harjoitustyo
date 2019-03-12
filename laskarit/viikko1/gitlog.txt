@@ -1,3 +1,5 @@
+testirivi epäsynkronisuudesta
+
 commit 7e1542044451a355347d66fefa0dc7dbb0b5f058
 Author: Akseli N <virtualakseli@gmail.com>
 Date:   Tue Mar 12 14:03:36 2019 +0200
