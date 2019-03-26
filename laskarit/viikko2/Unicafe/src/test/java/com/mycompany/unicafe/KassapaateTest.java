@@ -1,12 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.mycompany.unicafe;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MaksukorttiTest {
-
-    Maksukortti kortti;
+/**
+ *
+ * @author aknu
+ */
+public class KassapaateTest {
+    
+     Maksukortti kortti;
     Kassapaate kassa;
     Paaohjelma p;
     @Before
@@ -66,27 +76,43 @@ public class MaksukorttiTest {
     
     @Test
     public void testEd() {
+        kassa.syoEdullisesti(200);
+        assertEquals(1000, kortti.saldo());
+        kassa.syoEdullisesti(700);
+        assertEquals(1, kassa.edullisiaLounaitaMyyty());
+        kassa.syoMaukkaasti(440);
+        assertEquals(1, kassa.maukkaitaLounaitaMyyty());
+        
+        assertEquals(100640, kassa.kassassaRahaa());
+        
+        
+    }
+    
+    @Test 
+    public void syoEdEiVahSaldoa() {
         kassa.syoEdullisesti(kortti);
-        kassa.syoEdullisesti(240);
+        kassa.syoEdullisesti(kortti);
         kassa.syoEdullisesti(kortti);
         kassa.syoEdullisesti(kortti);
         kassa.syoEdullisesti(kortti);
         assertEquals(40, kortti.saldo());
-        
-        
     }
     
     @Test
     public void testMau() {
-        kassa.syoMaukkaasti(900);
-        kassa.syoMaukkaasti(200);
-        assertEquals(100400, kassa.kassassaRahaa());
+        
+        assertEquals(100000, kassa.kassassaRahaa());
     }
     
     @Test
-    public void testStats() {
-        kassa.maukkaitaLounaitaMyyty();
-        kassa.edullisiaLounaitaMyyty();
+    public void testMauStats() {
+        assertEquals(0, kassa.maukkaitaLounaitaMyyty());
+       
+    }
+    
+    @Test 
+    public void testEdStats() {
+        assertEquals(0, kassa.edullisiaLounaitaMyyty());
     }
     
     @Test
@@ -120,5 +146,4 @@ public class MaksukorttiTest {
     }
    
     
-   
 }
