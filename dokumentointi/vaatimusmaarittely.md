@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
-Sovelluksen päätoiminnallisuus on sudoku-pelin pelaaminen. Käyttäjä voi valita valmiista pelipohjista tai pelata omaa pohjansa
+Sovelluksen päätoiminnallisuus on sudoku-pelin pelaaminen. Käyttäjä voi valita valmiista pelipohjista tai pelata omaa pohjaansa
 
 ## Käyttäjät
 Sovelluksella on yhdenlaisia käyttäjiä, eli pelaajat. En toteuta tähän mitään erityistä etuoikeutettua super-user tilaa.
