@@ -1,8 +1,9 @@
 # OT-harjoitustyökansion sisältö: 
-##  Laskarit
 
-### Dokumentointi
+## Dokumentointi
 - [Vaatimusmäärittely](https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md "Vaatimusmäärittely")
+
+##  Laskarit
 
 ### Viikko 1 
 - [gitlog.txt](https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt "gitlog.txt")
