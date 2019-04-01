@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
-Sovelluksen päätoiminnallisuus on sudoku-pelin pelaaminen. Käyttäjä voi valita valmiista pelipohjista tai pelata omaa pohjansa
+Sovelluksen päätoiminnallisuus on sudoku-pelin pelaaminen. Käyttäjä voi valita valmiista pelipohjista tai pelata omaa pohjaansa
 
 ## Käyttäjät
 Sovelluksella on yhdenlaisia käyttäjiä, eli pelaajat. En toteuta tähän mitään erityistä etuoikeutettua super-user tilaa.
@@ -9,7 +9,7 @@ Sovelluksella on yhdenlaisia käyttäjiä, eli pelaajat. En toteuta tähän mit�
 ## Käyttöliittymäluonnos
 Pelin koodaaminen on jo aloitettu ja pelin lopullinenkin muoto tulee näyttämään osapuilleen tältä:
 
-<img src="https://github.com/VirtualAkseli/ot-harjoitustyo/dokumentointi/demo1.png" />
+<img src="https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/demo1.png" />
 
 Sovelluksen avautumisnäkymäksi tulee muutamalla painikkeella varustettu ikkuna, josta valitaan joko jokin 3:sta valmiiksi asetetusta pelipohjasta tai luodaan oma sudoku.
 
