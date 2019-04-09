@@ -8,4 +8,6 @@
 | 29.3  |  3   | Sudokun toiminnallisuuden tekemistä |
 | 1.4   |  3   | Sudokun toiminnallisuuden tekemistä |
 | 2.4   |  2   | Testien tekemistä, tulevan toiminnan suunnittelua |
-| yht   | 28 | yhteenlaskettu Sudokuun käytetty aika so-far |
+| 8.4 | 5 | Ohjelman "refaktoroimista" kahteen eri luokkaan, ylimääräisten elementtien poistamista |
+| 9.4 | 10 | Asiallisempien testien tekemistä, valmiin pelipohjan asennus, ensimmäiset (epäonnistuneet) pelikellokokeilut |
+| yht   | 43 | yhteenlaskettu Sudokuun käytetty aika so-far |
