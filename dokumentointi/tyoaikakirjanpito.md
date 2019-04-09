@@ -10,4 +10,4 @@
 | 2.4   |  2   | Testien tekemistä, tulevan toiminnan suunnittelua. Määrittelydokumentti |
 | 8.4 | 5 | Ohjelman "refaktoroimista" kahteen eri luokkaan, ylimääräisten elementtien poistamista |
 | 9.4 | 10 | Asiallisempien testien tekemistä, valmiin pelipohjan asennus, ensimmäiset (epäonnistuneet) pelikellokokeilut |
-| yht   | 43 | yhteenlaskettu Sudokuun käytetty aika so-far |
+| yht   | 40-50 | yhteenlaskettu Sudokuun käytetty aika so-far |
