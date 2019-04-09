@@ -17,7 +17,7 @@ Sovelluksen avautumisnäkymäksi tulee muutamalla painikkeella varustettu ikkuna
 ## Ohjelman ominaisuudet
 
 ### Tämänhetkiset toiminnallisuudet
-"Pelimuodon" (vaikeusaste) valittua pelaajalle avautuu yllä kuvattu pelilauta. Peli ilmoittaa nykytilassaan punaisella symbolilla jos pysty- tai vaakarivillä tai 3x3 ruudussa on duplikaattinumeroita. Syöte on toistaiseksi rajattu pelkkiin numeroihin.
+"Pelimuodon" (vaikeusaste) valittua pelaajalle avautuu yllä kuvattu pelilauta. Peli ilmoittaa nykytilassaan huutomerkkisymbolilla jos pysty- tai vaakarivillä tai 3x3 ruudussa on duplikaattinumeroita. Syöte on toistaiseksi rajattu pelkkiin numeroihin.
 
 ### Tulevat toiminnallisuudet
 - Pelikello
