@@ -6,9 +6,29 @@ tallentaa omia pohjiaan.
 - [Arkkitehtuurikuvaus](https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md "Arkkitehtuurikuvaus")
 - [Työaikakirjanpito](https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md "Työaikakirjanpito")
 
+
+## Releaset
+
+- [Viikko 5](https://github.com/VirtualAkseli/ot-harjoitustyo/releases/tag/viikko5 "Release viikko 5")
+
 ## Komentorivitoiminnot
 
 ### Suoritus
+
+Suoritettavan jarin generointi komennolla
+
+```
+mvn package
+```
+
+.jar suoritus
+
+```
+java -jar sudokuNow-1.0-jar-with-dependencies.jar
+```
+
+
+
 
 Ohjelma on suoritettavissa komennolla
 
