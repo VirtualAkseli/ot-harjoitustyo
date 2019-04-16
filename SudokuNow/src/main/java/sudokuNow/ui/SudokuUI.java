@@ -65,7 +65,7 @@ public class SudokuUI extends Application implements ActionListener {
     public void init() {
         s = new Sudoku();
         dao = new FileSudokuDao();
-       
+
     }
 
     @Override
@@ -89,14 +89,20 @@ public class SudokuUI extends Application implements ActionListener {
         startEle.getChildren().add(loginElements);
 
         Scene startScene = new Scene(startEle);
-        startScene.getStylesheets().add("./custom.css");
+
+        startScene.getStylesheets().add("custom.css");
 
         mainStage.setScene(startScene);
 
         mainStage.setResizable(false);
 
-        Image backgImg1 = new Image("./background_sud.png");
-        Image backgImg2 = new Image("./background_sud_v2.png");
+        String filePath = new File("src/main/resources").getAbsolutePath();
+        System.out.println(filePath);
+
+        Image backgImg1 = new Image("background_sud.png");
+        Image backgImg2 = new Image("background_sud_v2.png");
+
+        Font coolFont = new Font("MagicCardsNormal.ttf", 30);
 
         BackgroundSize size = new BackgroundSize(715, 700, false, false, false, false);
         BackgroundImage img2 = new BackgroundImage(backgImg1, null, null, null, size);
@@ -106,13 +112,10 @@ public class SudokuUI extends Application implements ActionListener {
         Background back2 = new Background(img3);
 
         startEle.setBackground(back1);
-        Font coolFont = new Font("./MagicCardsNormal.ttf", 30);
 
         easyMode.setOnAction(e -> {
 
             initTable = s.makeSudokuEasy();
-
-            
 
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
@@ -131,8 +134,6 @@ public class SudokuUI extends Application implements ActionListener {
         hardMode.setOnAction(e -> {
 
             initTable = s.makeSudokuHard();
-
-            
 
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
@@ -302,16 +303,13 @@ public class SudokuUI extends Application implements ActionListener {
                 }
             }
         });
-        
+
         minutes = 0;
-           
+
         clock = new Text("00");
-        
+
         clockTime = 0;
-       
-        
-       
-        
+
         Timeline timeline1 = new Timeline(new KeyFrame(
                 Duration.millis(1000),
                 a -> tickClock()));
@@ -331,7 +329,7 @@ public class SudokuUI extends Application implements ActionListener {
 
         playElements.getChildren().add(buttons);
         playScene = new Scene(playElements);
-        playScene.getStylesheets().add("./custom.css");
+        playScene.getStylesheets().add("custom.css");
 
         /* mainStage.setScene(playScene);
         mainStage.setMinHeight(740);
@@ -342,23 +340,20 @@ public class SudokuUI extends Application implements ActionListener {
     }
 
     public void tickClock() {
-        
-       
-                if (clockTime > 59) {
-                   
-                    clock.setText(clockTime/60 + ":" + String.valueOf(clockTime % 60));
-                    clockTime++;
-                }
 
-                if (clockTime < 10) {
-                    clock.setText("0" + String.valueOf(clockTime));
-                    clockTime++;
-                } else  if ( clockTime < 60 ) {
-                    clock.setText(String.valueOf(clockTime));
-                    clockTime++;
-                }
-            
-        
+        if (clockTime > 59) {
+
+            clock.setText(clockTime / 60 + ":" + String.valueOf(clockTime % 60));
+            clockTime++;
+        }
+
+        if (clockTime < 10) {
+            clock.setText("0" + String.valueOf(clockTime));
+            clockTime++;
+        } else if (clockTime < 60) {
+            clock.setText(String.valueOf(clockTime));
+            clockTime++;
+        }
 
     }
 
