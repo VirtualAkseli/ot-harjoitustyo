@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15-Mar-2019, 09:37:34
+    Author     : aknu
+*/
+
+
+
+.button {
+    -fx-background-color: black;
+    -fx-border-color: #cca262;
+     -fx-border-width: 2px;
+     -fx-text-fill: #cca262;
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+    -fx-font: normal bold 30px 'Magic Cards';
+    -fx-padding: 10;
+}
+
+#titletext {
+    -fx-font: normal bold 40px 'Magic Cards';
+}
+
+.ok {
+    -fx-font: normal bold 50px 'Magic Cards';
+    -fx-background-color: green;
+}
+
+.errortext {
+    -fx-font: normal bold 50px 'Magic Cards';
+    -fx-background-color: red;
+}
+
+.field {
+     -fx-font: normal bold 25px 'Magic Cards';
+     
+     
+     
+     
+}
+
+
+

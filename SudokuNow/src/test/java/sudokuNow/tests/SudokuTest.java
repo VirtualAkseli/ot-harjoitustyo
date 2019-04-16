@@ -1,4 +1,8 @@
+package sudokuNow.tests;
 
+
+import java.io.IOException;
+import org.junit.Assert;
 import sudokuNow.domain.Sudoku;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -57,14 +61,44 @@ public class SudokuTest {
     }
     
     @Test
-    public void easySudokuOkTest() {
+    public void checkSudokuEasyTest() {
         
         Sudoku s = new Sudoku();
-        s.makeSudokuEasy();
-        int[][] easyTable = s.getTable();
-        int result = easyTable[0][8];
-        assertEquals(7, result);
+        int[][] sudoEasy = {
+            {0, 0, 0, 6, 0, 2, 0, 0, 7},
+            {0, 7, 0, 0, 0, 0, 0, 4, 1},
+            {0, 0, 2, 7, 5, 0, 0, 8, 9},
+            {0, 0, 0, 3, 4, 6, 0, 9, 2},
+            {1, 0, 9, 5, 2, 8, 0, 0, 0},
+            {0, 4, 3, 0, 0, 0, 0, 6, 0},
+            {7, 8, 1, 0, 3, 9, 0, 2, 0},
+            {9, 3, 4, 0, 6, 5, 7, 1, 8},
+            {6, 0, 5, 8, 7, 1, 0, 0, 4}
+        };
         
+        Assert.assertArrayEquals(sudoEasy, s.makeSudokuEasy());
         
     }
+    
+    @Test
+    public void checkSudokuHardTest() {
+        
+        Sudoku s = new Sudoku();
+        int[][] sudoHard =  {
+            {1, 2, 0, 0, 0, 0, 5, 0, 0}, 
+            {0, 0, 6, 0, 0, 0, 0, 0, 0}, 
+            {0, 4, 0, 0, 0, 3, 0, 0, 9},
+            {0, 7, 0, 5, 9, 0, 0, 0, 8}, 
+            {0, 0, 0, 2, 0, 0, 0, 0, 0}, 
+            {0, 0, 0, 8, 7, 0, 0, 2, 1},
+            {4, 0, 0, 1, 0, 0, 0, 0, 2}, 
+            {0, 0, 0, 0, 5, 0, 6, 0, 0}, 
+            {8, 0, 0, 4, 0, 0, 0, 7, 0}
+        };
+        
+        Assert.assertArrayEquals(sudoHard, s.makeSudokuHard());
+        
+    }
+    
+   
 }

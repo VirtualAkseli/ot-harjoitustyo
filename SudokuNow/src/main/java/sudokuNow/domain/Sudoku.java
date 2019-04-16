@@ -1,6 +1,11 @@
 package sudokuNow.domain;
 
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,17 +34,17 @@ public class Sudoku {
     int[][] idArr = new int[9][9];
     int id;
     int badInt;
+    
 
-    public String toString() {
-        return "Testitulostus toimii!";
-    }
+    
 
     public Sudoku() {
-        /* for (int i = 0; i < 9 ; i++) {
+        
+         for (int i = 0; i < 9 ; i++) {
             for (int j = 0; j < 9; j++) {
                 table[i][j] = 0;
             }
-        }*/
+        }
 
        // makeSudokuEasy();
 
@@ -48,29 +53,64 @@ public class Sudoku {
     public int[][] getTable() {
         return table;
     }
+    public void setTable(int[][] tableNew) {
+        this.table = tableNew;
+    }
+    
+   
+    
+    
 
-    public void makeSudokuEasy() {
+    public int[][] makeSudokuEasy() {
+        
+        
         int[][] easyTable = {
             {0, 0, 0, 6, 0, 2, 0, 0, 7}, {0, 7, 0, 0, 0, 0, 0, 4, 1}, {0, 0, 2, 7, 5, 0, 0, 8, 9},
             {0, 0, 0, 3, 4, 6, 0, 9, 2}, {1, 0, 9, 5, 2, 8, 0, 0, 0}, {0, 4, 3, 0, 0, 0, 0, 6, 0},
             {7, 8, 1, 0, 3, 9, 0, 2, 0}, {9, 3, 4, 0, 6, 5, 7, 1, 8}, {6, 0, 5, 8, 7, 1, 0, 0, 4}
-
         };
-        table = easyTable;
+        
+        //table = easyTable;
+        
+        return easyTable;
+    }
+    
+    public int[][] makeSudokuHard() {
+        
+        
+        int[][] hardTable = {
+            {1, 2, 0, 0, 0, 0, 5, 0, 0}, 
+            {0, 0, 6, 0, 0, 0, 0, 0, 0}, 
+            {0, 4, 0, 0, 0, 3, 0, 0, 9},
+            {0, 7, 0, 5, 9, 0, 0, 0, 8}, 
+            {0, 0, 0, 2, 0, 0, 0, 0, 0}, 
+            {0, 0, 0, 8, 7, 0, 0, 2, 1},
+            {4, 0, 0, 1, 0, 0, 0, 0, 2}, 
+            {0, 0, 0, 0, 5, 0, 6, 0, 0}, 
+            {8, 0, 0, 4, 0, 0, 0, 7, 0}
+        };
+        
+        //table = hardTable;
+        
+        return hardTable;
     }
 
     public void setSudoku(int y, int x, int s) {
         table[y][x] = s;
     }
+    
+    
 
     public boolean checkSudoku(int y, int x, int s) {
         for (int l = 0; l < 9; l++) {
             if (table[y][l] == s) {
+                 System.out.println("virhe! ristiriita kohdassa y: " +y+ " , x: " +l + " lisätty arvo " + s + " löytyy jo!");
                 return false;
             }
         }
         for (int k = 0; k < 9; k++) {
             if (table[k][x] == s) {
+                System.out.println("virhe! ristiriita kohdassa y: " +k+ " , x: " +x + " lisätty arvo " + s + " löytyy jo!");
                 return false;
             }
         }
@@ -81,6 +121,7 @@ public class Sudoku {
         for (int yyy = y; yyy < y + 3; yyy++) {
             for (int xxx = x; xxx < x + 3; xxx++) {
                 if (table[yyy][xxx] == s) {
+                     System.out.println("virhe! ristiriita kohdassa y: " +yyy+ " , x: " +xxx + " lisätty arvo " + s + " löytyy jo!");
                     return false;
                 }
             }
