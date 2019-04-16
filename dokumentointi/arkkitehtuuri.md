@@ -9,6 +9,7 @@ Oheinen kaavio kuvaa syötteen käsittelyä ohjelmassa
 <img src="https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/sequence_setSudoku.png?raw=true">
 
 <img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fdancesportlive.net%2Fdsl%2Fimages%2Funder_construction.gif&f=1">
+
 ## Käyttöliittymä
 Work in progress
 
