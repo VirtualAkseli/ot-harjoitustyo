@@ -12,4 +12,4 @@ Work in progress
 Work in progress
 
 ## Tietojen pysyväistallennus
-Work in progress
+Tiedot tallennetaan save.xml tiedostoon "taulukkona", josta ne pelitilanteen ladatessa saadaan takaisin. 
