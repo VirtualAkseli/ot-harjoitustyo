@@ -1,5 +1,5 @@
 # Käyttöohje
-Lataa tiedosto [SudokuNow-1.0-jar-with-dependencies.jar](https://github.com/VirtualAkseli/ot-harjoitustyo/releases/tag/viikko6 "Lataa sudoku")
+Lataa tiedosto [SudokuNow-1.0-jar-with-dependencies.jar](https://github.com/VirtualAkseli/ot-harjoitustyo/releases/download/viikko6/sudokuNow-1.0-jar-with-dependencies.jar "Lataa sudoku")
 ## Ohjelman käynnistäminen
 ohjelma käynnistetään komennolla
 `` java -jar SudokuNow-1.0-jar-with-dependencies.jar ``
