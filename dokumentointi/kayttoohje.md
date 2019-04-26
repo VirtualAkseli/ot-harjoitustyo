@@ -1,8 +1,8 @@
 # Käyttöohje
-Lataa tiedosto SudokuNow.jar
+Lataa tiedosto SudokuNow-1.0-jar-with-dependencies.jar
 ## Ohjelman käynnistäminen
 ohjelma käynnistetään komennolla
-`` java -jar SudokuNow.jar ``
+`` java -jar SudokuNow-1.0-jar-with-dependencies.jar ``
 ## Pelivalikko
 Pelivalikosta valitaan pelin vaikeustaso ("Easy", "Hard") tai ladataan vanha peli ("Load")
 ## Pelin pelaaminen
