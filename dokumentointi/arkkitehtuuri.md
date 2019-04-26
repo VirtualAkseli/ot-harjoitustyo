@@ -1,7 +1,7 @@
 # Arkkitehtuurikuvaus
 ## Rakenne
 Ohjelman rakenne noudattaa kolmitasoista kerrosarkkitehtuuria. Tämänhetkinen pakkausrakenne:
-<img src="https://raw.githubusercontent.com/VirtualAkseli/ot-harjoitustyo/master/dokumentointi/arkkitehtuurikaavio.png" alt="Arkkitehtuurikuvaus" width="700">
+<img src="https://raw.githubusercontent.com/VirtualAkseli/ot-harjoitustyo/master/dokumentointi/ot_6_dia.png" alt="Arkkitehtuurikuvaus" width="700">
 
 Pakkauksessa sudokuNow.ui on JavaFX:llä toteutettu käyttöliittymä, sudokuNow.domain sisältää sovelluslogiikan, ja FileSudokuDao tiedostoon tallentamisesta vastaavan logiikan. 
 
