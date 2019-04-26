@@ -17,31 +17,31 @@
                 
             </plugin>
             <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-assembly-plugin</artifactId>
-    <version>2.2-beta-4</version>
-    <configuration>
-      <descriptorRefs>
-        <descriptorRef>jar-with-dependencies</descriptorRef>
-      </descriptorRefs>
-      <archive>
-        <manifest>
-          <mainClass>sudokuNow.ui.SudokuUI</mainClass>
-        </manifest>
-        <manifestEntries>
-              <Class-Path>.</Class-Path>
-            </manifestEntries>
-      </archive>
-    </configuration>
-    <executions>
-      <execution>
-        <phase>package</phase>
-        <goals>
-          <goal>single</goal>
-        </goals>
-      </execution>
-    </executions>
-  </plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2-beta-4</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>sudokuNow.ui.SudokuUI</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Class-Path>.</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -50,6 +50,7 @@
                 <configuration>
                     <excludes>
                         <exclude>sudokuNow/ui/*</exclude>
+                        
                     </excludes>
                 </configuration>  
                 <executions>

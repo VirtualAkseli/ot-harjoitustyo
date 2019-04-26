@@ -25,10 +25,10 @@ public class FileSudokuDaoTest {
         s1.setSudoku(0, 0, 3);
         
         int[][] array1 = s1.getTable();
-        dao.saveSudoku(array1);
+        dao.saveSudoku(array1, 0, 0);
         
         
-        int[][] array2 = dao.loadSudoku(0);
+        int[][] array2 = dao.loadSudoku(1);
         
         assertEquals(array1[0][0], array2[0][0]);
 

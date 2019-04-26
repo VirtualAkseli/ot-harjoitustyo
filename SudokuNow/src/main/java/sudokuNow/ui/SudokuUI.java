@@ -41,7 +41,15 @@ import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 /**
- *
+ * "SudokuUI" class is responsible for building the UI
+ * @param table contains the "game state"
+ * @param idArr contains an reference id to a certain Sudoku-slot
+ * @param initTable an empty table for assisting the initalising
+ * of preset Sudokus
+ * @param clockTime seconds from the start of the game
+ * @param minutes minutes from the beginning of the game
+ * @param timeInfo A table that withholds the minutes and seconds (clockTime) 
+ * from a savegame
  * @author aknu
  */
 public class SudokuUI extends Application implements ActionListener {
@@ -49,17 +57,19 @@ public class SudokuUI extends Application implements ActionListener {
     TextField error;
     TextField txt;
     GridPane base;
-    Text clock;
+    
     int[][] table = new int[9][9];
     int[][] idArr = new int[9][9];
     int[][] initTable = new int[9][9];
     int id;
-    int badInt;
+    
     Scene playScene;
     Sudoku s;
     FileSudokuDao dao;
-    int clockTime;
-    int minutes;
+    int clockTime = 0;
+    int minutes = 0;
+    int[][] timeInfo = new int[2][2];
+    Text clock = new Text("00");
 
     @Override
     public void init() {
@@ -96,8 +106,9 @@ public class SudokuUI extends Application implements ActionListener {
 
         mainStage.setResizable(false);
 
+        /*
         String filePath = new File("src/main/resources").getAbsolutePath();
-        System.out.println(filePath);
+        System.out.println(filePath); */
 
         Image backgImg1 = new Image("background_sud.png");
         Image backgImg2 = new Image("background_sud_v2.png");
@@ -153,6 +164,7 @@ public class SudokuUI extends Application implements ActionListener {
 
             try {
                 table = dao.loadSudoku(1);
+                timeInfo = dao.loadSudoku(2);
             } catch (IOException ex) {
                 Logger.getLogger(SudokuUI.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -167,7 +179,11 @@ public class SudokuUI extends Application implements ActionListener {
                     }
                 }
             }
-
+            this.minutes = timeInfo[0][0];
+            this.clockTime = timeInfo[0][1];
+            System.out.println("Kello nyt:");
+            System.out.println(minutes);
+            System.out.println(clockTime);
             mainStage.setScene(playScene);
         });
         ;
@@ -297,18 +313,18 @@ public class SudokuUI extends Application implements ActionListener {
             @Override
             public void handle(ActionEvent e) {
                 try {
-                    dao.saveSudoku(table);
+                    dao.saveSudoku(table, minutes, clockTime);
                 } catch (IOException ex) {
                     Logger.getLogger(SudokuUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
 
-        minutes = 0;
+        //minutes = 0;
 
-        clock = new Text("00");
-
-        clockTime = 0;
+        
+        clock.setFont(coolFont);
+        //clockTime = 0;
 
         Timeline timeline1 = new Timeline(new KeyFrame(
                 Duration.millis(1000),
@@ -326,6 +342,7 @@ public class SudokuUI extends Application implements ActionListener {
         buttons.getChildren().add(error);
 
         buttons.getChildren().add(clock);
+        buttons.setPadding(new Insets(40, 40, 40, 40));
 
         playElements.getChildren().add(buttons);
         playScene = new Scene(playElements);
@@ -338,20 +355,27 @@ public class SudokuUI extends Application implements ActionListener {
         mainStage.show();
 
     }
-
+    /**
+     * Ensures the logic behind ticking of the clock, converts clockTime to 
+     * seconds after the first minute has passed
+     */
     public void tickClock() {
-
+        if (clockTime > 600) {
+            
+            clock.setText(clockTime/60 + ":" + String.valueOf(clockTime % 60));
+            
+        }
         if (clockTime > 59) {
 
-            clock.setText(clockTime / 60 + ":" + String.valueOf(clockTime % 60));
+            clock.setText("0" + clockTime / 60 + ":" + String.valueOf(clockTime % 60));
             clockTime++;
         }
 
         if (clockTime < 10) {
-            clock.setText("0" + String.valueOf(clockTime));
+            clock.setText("00:0" + String.valueOf(clockTime));
             clockTime++;
         } else if (clockTime < 60) {
-            clock.setText(String.valueOf(clockTime));
+            clock.setText("00:" + String.valueOf(clockTime));
             clockTime++;
         }
 
