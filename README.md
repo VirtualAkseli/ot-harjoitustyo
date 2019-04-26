@@ -10,7 +10,7 @@ tallentaa omia pohjiaan.
 
 ## Releaset
 
-- [Viikko 5]()
+- [Viikko 5](https://github.com/VirtualAkseli/ot-harjoitustyo/releases/tag/viikko5 "Viikko 5 Release")
 
 
 ## Komentorivitoiminnot
