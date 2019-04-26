@@ -5,8 +5,6 @@ Ohjelman rakenne noudattaa kolmitasoista kerrosarkkitehtuuria. Tämänhetkinen p
 
 Pakkauksessa sudokuNow.ui on JavaFX:llä toteutettu käyttöliittymä, sudokuNow.domain sisältää sovelluslogiikan, ja FileSudokuDao tiedostoon tallentamisesta vastaavan logiikan. 
 
-Oheinen kaavio kuvaa syötteen käsittelyä ohjelmassa
-<img src="https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/sequence_setSudoku.png?raw=true">
 
 
 ## Käyttöliittymä
@@ -29,6 +27,9 @@ Sovellus tallentaa pelin numerot ja pelatessa kuluneen ajan eri tiedostoihin.
 ## Päätoiminnallisuudet 
 Seuraavissa kuvissa esitetään sekvenssikaavioina muutama keskeinen pelitoiminnallisuus
 ### Pelaajan syötteen käsittely TextField-oliossa
+Oheinen kaavio kuvaa syötteen käsittelyä ohjelmassa
+<img src="https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/sequence_setSudoku.png?raw=true">
+
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 TBA
