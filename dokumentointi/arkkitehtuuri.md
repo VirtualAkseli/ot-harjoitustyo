@@ -9,8 +9,8 @@ Pakkauksessa sudokuNow.ui on JavaFX:llä toteutettu käyttöliittymä, sudokuNow
 
 ## Käyttöliittymä
 Käyttöliittymä sisältää 2 erilaista näkymää
--uuden pelin valinta tai tallennustiedoston lataaminen
--pelin pelaaminen (mahdollisuus pelin tallentamiseen)
+- uuden pelin valinta tai tallennustiedoston lataaminen
+- pelin pelaaminen (mahdollisuus pelin tallentamiseen)
 
 Em. tilat on totetutettu JavaFX Scene-olioina. Käyttöliittymä on rakennettu kokonaisuudessaan luokkaan SudokuNow.ui.SudokuUI
 
