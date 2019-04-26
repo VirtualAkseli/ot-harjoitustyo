@@ -12,4 +12,7 @@
 | 9.4 | 10 | Asiallisempien testien tekemistä, valmiin pelipohjan asennus, ensimmäiset (epäonnistuneet) pelikellokokeilut |
 | 15.4 | 6 | Tallennustoiminnallisuuden lisääminen, CSS-tyylin lisääminen, taustakuvien lisääminen. |
 | 16.4 | 6 | Korjattiin pelikello, taisteltiin maven kanssa jar-pakkauksen luomiseksi (rikottiin aikasemmin toiminut jacoco-report |
-| yht   | +52 | yhteenlaskettu Sudokuun käytetty aika so-far |
+| 22.4 | 4 | Suunniteltiin pelikellon tallentamista tiedostoon. Toteutus. |
+| 24.4 | 3 | Epäonnistuneita yrityksiä saada jacoco:report toimimaan. |
+| 26.4 | 4 | Dokumentoinnin kirjoittamista, javadoc aloittaminen, lisää jacoco:report-epäonnistumisen pohdiskelua |
+| yht   | +63 | yhteenlaskettu Sudokuun käytetty aika so-far |
