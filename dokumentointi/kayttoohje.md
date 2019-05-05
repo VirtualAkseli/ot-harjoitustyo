@@ -1,5 +1,5 @@
 # Käyttöohje
-Lataa tiedosto [SudokuNow-1.0-jar-with-dependencies.jar](https://github.com/VirtualAkseli/ot-harjoitustyo/releases/download/viikko6/sudokuNow-1.0-jar-with-dependencies.jar "Lataa sudoku")
+Lataa tiedosto [SudokuNow-1.0-jar-with-dependencies.jar](https://github.com/VirtualAkseli/ot-harjoitustyo/releases/download/Final/sudokuNow-1.0-jar-with-dependencies.jar "Lataa sudoku")
 ## Alustustoimet
 - target hakemistosta tulee löytyä kopio "highscore.xml" tiedostosta. (Löytyy SudokuNow-hakemistosta).
 - Jos kuvissa näkyvän hienon fontin toivoo toimivan itsellään, src/main/resources -hakemistosta löytyvä "MagicCardsNormal.ttf"-fontti tulee asentaa.
