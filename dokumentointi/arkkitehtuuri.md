@@ -1,9 +1,9 @@
 # Arkkitehtuurikuvaus
 ## Rakenne
 Ohjelman rakenne noudattaa kolmitasoista kerrosarkkitehtuuria. Tämänhetkinen pakkausrakenne:
-<img src="https://raw.githubusercontent.com/VirtualAkseli/ot-harjoitustyo/master/dokumentointi/ot_6_dia.png" alt="Arkkitehtuurikuvaus" width="700">
+<img src="https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuurikuvaus.png?raw=true" alt="Arkkitehtuurikuvaus" width="700">
 
-Pakkauksessa sudokuNow.ui on JavaFX:llä toteutettu käyttöliittymä, sudokuNow.domain sisältää sovelluslogiikan, ja FileSudokuDao tiedostoon tallentamisesta vastaavan logiikan. 
+Pakkauksessa sudokuNow.ui on JavaFX:llä toteutettu käyttöliittymä, sudokuNow.domain sisältää sovelluslogiikan, ja SavingSudokuDao tiedostoon tallentamisesta ja lukemisesta vastaavan logiikan. 
 
 
 
@@ -21,6 +21,11 @@ Sovelluslogiikka muodostuu SudokuUI ja Sudoku -luokkien yhteispelistä. Kun käy
 
 ## Tietojen pysyväistallennus
 Pelitaulukon tiedot tallennetaan save.xml tiedostoon "taulukkona", josta ne pelitilanteen ladatessa saadaan takaisin. Tallennushetkellä kulunut aika tallennetaan time.xml tiedostoon, ratkaisuun käytetty aika highscore.xml tiedostoon. Pakkauksen SudokuNow.dao luokka SavingSudokuDao vastaa tietojen pysyäistallentamisesta.
+
+### Tallennustiedosto
+Sovellus kirjoittaa .xml tiedostoihin hyvin yksinkertaista dataa, joka sitten muutetaan merkkijonoksi ja pilkotaan tulkitsemisessa vaadittaviin osiin. 
+esim. rivillä `` |easy: 3,39|easy: 8,32|easy: 4,4|easy: 1,23|easy: 0,50|easy: 0,47|easy: 0,44|easy: 0,43 ``
+lukevat suoritustyypit ja ajat tiedostoon kirjoitetussa muodossa.
 
 ### Pelitilanteen (numerot ja pelikello) tallentaminen
 Sovellus tallentaa pelin numerot ja pelatessa kuluneen ajan eri tiedostoihin.
