@@ -12,12 +12,12 @@ Käyttöliittymä sisältää 2 erilaista näkymää
 - uuden pelin valinta tai tallennustiedoston lataaminen
 - pelin pelaaminen (mahdollisuus pelin tallentamiseen)
 
-Em. tilat on totetutettu JavaFX Scene-olioina. Käyttöliittymä on rakennettu kokonaisuudessaan luokkaan SudokuNow.ui.SudokuUI
+Em. tilat on totetutettu JavaFX Scene-olioina. Käyttöliittymä on rakennettu kokonaisuudessaan luokkaan SudokuNow.ui.UI
 
 Kun käyttäjä syöttää sudokuun numeron, ohjelmakoodissa olevat EventListenerit huomaavat muutoksen ja tarkastavat lisäyksen oikeellisuuden ennen sen lisäämistä taulukkoon.
 
 ## Sovelluslogiikka 
-Sovelluslogiikka muodostuu SudokuUI ja Sudoku -luokkien yhteispelistä. Kun käyttöliittymäkomponentti huomaa muutoksen, se kutsuu Sudoku-luokan tarkastusmetodia, jonka tarkastusten perusteella muodostetaan virheestä ilmoittava punainen ilmoitussymboli, jos taulussa on ristiriita. Tauluun lisääminen tapahtuu vasta tarkastusten jälkeen, sovelluslogiikan yksinkertaistamiseksi. Sudoku-luokka palauttaa taulukon, joka iteratiivisesti läpikäyden renderöidään uudestaan näkyviin pelaajalle.
+Sovelluslogiikka muodostuu UI ja SudokuMain -luokkien yhteispelistä. Kun käyttöliittymäkomponentti huomaa muutoksen, se kutsuu Sudoku-luokan tarkastusmetodia, jonka tarkastusten perusteella muodostetaan virheestä ilmoittava punainen ilmoitussymboli, jos taulussa on ristiriita. Tauluun lisääminen tapahtuu vasta tarkastusten jälkeen, sovelluslogiikan yksinkertaistamiseksi. SudokuMain-luokka palauttaa taulukon, joka iteratiivisesti läpikäyden renderöidään uudestaan näkyviin pelaajalle.
 
 ## Tietojen pysyväistallennus
 Pelitaulukon tiedot tallennetaan save.xml tiedostoon "taulukkona", josta ne pelitilanteen ladatessa saadaan takaisin. Tallennushetkellä kulunut aika tallennetaan time.xml tiedostoon, ratkaisuun käytetty aika highscore.xml tiedostoon. Pakkauksen SudokuNow.dao luokka SavingSudokuDao vastaa tietojen pysyäistallentamisesta.
@@ -33,7 +33,7 @@ Sovellus tallentaa pelin numerot ja pelatessa kuluneen ajan eri tiedostoihin.
 ## Päätoiminnallisuudet 
 Seuraavissa kuvissa esitetään sekvenssikaavioina muutama keskeinen pelitoiminnallisuus
 ### Pelaajan syötteen käsittely TextField-oliossa
-Oheinen kaavio kuvaa syötteen käsittelyä ohjelmassa
+Oheinen kaavio kuvaa syötteen käsittelyä ohjelmassa (HUOM. Sudoku = SudokuMain, SudokuUI = UI)
 <img src="https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/sequence_setSudoku.png?raw=true">
 
 Alla oleva kaavio kuvaa "Check" painikkeen painamisen jälkeiset tapahtumat
