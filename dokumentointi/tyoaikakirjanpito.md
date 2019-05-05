@@ -15,4 +15,6 @@
 | 22.4 | 4 | Suunniteltiin pelikellon tallentamista tiedostoon. Toteutus. |
 | 24.4 | 3 | Epäonnistuneita yrityksiä saada jacoco:report toimimaan. |
 | 26.4 | 4 | Dokumentoinnin kirjoittamista, javadoc aloittaminen, lisää jacoco:report-epäonnistumisen pohdiskelua |
-| yht   | +63 | yhteenlaskettu Sudokuun käytetty aika so-far |
+| 4.5 | 8 | Viimeisiä silauksia tallentamiseen |
+| 5.5 | 8 | Pelin viime silaukset |
+| yht   | +75 | yhteenlaskettu Sudokuun käytetty aika so-far |
