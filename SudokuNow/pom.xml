@@ -26,7 +26,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>sudokuNow.ui.SudokuUI</mainClass>
+                            <mainClass>sudokuNow.ui.UI</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Class-Path>.</Class-Path>
@@ -47,12 +47,6 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.3</version>
-                <configuration>
-                    <excludes>
-                        <exclude>sudokuNow/ui/*</exclude>
-                        
-                    </excludes>
-                </configuration>  
                 <executions>
                     <execution>
                         <id>default-prepare-agent</id>
@@ -61,6 +55,13 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>sudokuNow/ui/*</exclude>
+                        <exclude>sudokuNow-1.0.jar</exclude>
+                    </excludes>
+                </configuration>  
+                
             </plugin> 
             
             <plugin>

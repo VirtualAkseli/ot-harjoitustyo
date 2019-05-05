@@ -20,9 +20,16 @@ and open the template in the editor.
     -fx-padding: 10;
 }
 
+
+
 #titletext {
     -fx-font: normal bold 40px 'Magic Cards';
 }
+#highscorelist {
+    -fx-font: normal bold 25px 'Magic Cards';
+}
+
+
 
 .ok {
     -fx-font: normal bold 50px 'Magic Cards';

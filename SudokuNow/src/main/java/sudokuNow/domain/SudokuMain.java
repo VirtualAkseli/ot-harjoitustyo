@@ -22,12 +22,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- *The "Sudoku" class is responsible for executing all of the logical operations
- * needed in the application
+ *The "SudokuMain" class is responsible for executing all of the logical operations
+ needed in the application
  * @author aknu
  */
 
-public class Sudoku {
+public class SudokuMain {
 
     TextField error;
     TextField txt;
@@ -37,7 +37,7 @@ public class Sudoku {
     int id;
     int badInt;
     
-    public Sudoku() {
+    public SudokuMain() {
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -56,8 +56,8 @@ public class Sudoku {
         this.table = tableNew;
     }
     /**
-     * Sets the starting Sudoku "board" as a preset easy Sudoku
-     * @return returns the newly set Sudoku "board"
+     * Sets the starting SudokuMain "board" as a preset easy SudokuMain
+     * @return returns the newly set SudokuMain "board"
      */
     
     public int[][] makeSudokuEasy() {
@@ -68,13 +68,13 @@ public class Sudoku {
             {7, 8, 1, 0, 3, 9, 0, 2, 0}, {9, 3, 4, 0, 6, 5, 7, 1, 8}, {6, 0, 5, 8, 7, 1, 0, 0, 4}
         };
 
-     
+        
         return easyTable;
     }
     
     /**
-     * Sets the starting Sudoku "board" as a preset hard Sudoku
-     * @return returns the newly set Sudoku "board"
+     * Sets the starting SudokuMain "board" as a preset hard SudokuMain
+     * @return returns the newly set SudokuMain "board"
      */
     public int[][] makeSudokuHard() {
 
@@ -113,29 +113,50 @@ public class Sudoku {
      */
     public boolean checkSudoku(int y, int x, int s) {
         for (int l = 0; l < 9; l++) {
-            if (table[y][l] == s) {
-                System.out.println("virhe! ristiriita kohdassa y: " + y + " , x: " + l + " lisätty arvo " + s + " löytyy jo!");
+            if (table[y][l] == s && l != x) {
+                System.out.println("vaakavirhe! ristiriita kohdassa y: " + y + " , x: " + l + " lisätty arvo " + s + " löytyy jo!");
                 return false;
             }
         }
         for (int k = 0; k < 9; k++) {
-            if (table[k][x] == s) {
-                System.out.println("virhe! ristiriita kohdassa y: " + k + " , x: " + x + " lisätty arvo " + s + " löytyy jo!");
+            if (table[k][x] == s && k != y) {
+                System.out.println("pystyvirhe! ristiriita kohdassa y: " + k + " , x: " + x + " lisätty arvo " + s + " löytyy jo!");
                 return false;
             }
         }
-
+        int orgY = y;
+        int orgX = x;
         y = y - (y % 3);
         x = x - (x % 3);
 
         for (int yyy = y; yyy < y + 3; yyy++) {
             for (int xxx = x; xxx < x + 3; xxx++) {
-                if (table[yyy][xxx] == s) {
-                    System.out.println("virhe! ristiriita kohdassa y: " + yyy + " , x: " + xxx + " lisätty arvo " + s + " löytyy jo!");
+                if (table[yyy][xxx] == s && yyy != orgY && xxx != orgX) {
+                    System.out.println("ruutuvirhe! ristiriita kohdassa y: " + yyy + " , x: " + xxx + " lisätty arvo " + s + " löytyy jo!");
                     return false;
                 }
             }
         }
         return true;
+    }
+    
+    public boolean checkResult() {
+        int chkVal;
+        boolean result = false;
+        for (int i = 0; i < 9 ; i++) {
+            for (int j = 0; j < 9 ; j++) {
+               chkVal = table[i][j];
+               if (chkVal == 0) {
+                   return false;
+               }
+               if (chkVal != 0) {
+               result = checkSudoku(i, j, chkVal);
+               if (!result) {
+                   return false;
+               }
+               }
+            }
+        }
+        return result;
     }
 }

@@ -8,6 +8,7 @@ package sudokuNow.ui;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.Animation;
@@ -34,68 +35,86 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import sudokuNow.domain.Sudoku;
-import sudokuNow.dao.FileSudokuDao;
+import sudokuNow.domain.SudokuMain;
+import sudokuNow.dao.SavingSudokuDao;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 /**
- * "SudokuUI" class is responsible for building the UI
+ * "UI" class is responsible for building the UI
+ *
  * @param table contains the "game state"
- * @param idArr contains an reference id to a certain Sudoku-slot
- * @param initTable an empty table for assisting the initalising
- * of preset Sudokus
+ * @param idArr contains an reference id to a certain SudokuMain-slot
+ * @param initTable an empty table for assisting the initalising of preset
+ * Sudokus
  * @param clockTime seconds from the start of the game
  * @param minutes minutes from the beginning of the game
- * @param timeInfo A table that withholds the minutes and seconds (clockTime) 
+ * @param timeInfo A table that withholds the minutes and seconds (clockTime)
  * from a savegame
  * @author aknu
  */
-public class SudokuUI extends Application implements ActionListener {
+public class UI extends Application implements ActionListener {
 
     TextField error;
     TextField txt;
     GridPane base;
-    
+
     int[][] table = new int[9][9];
     int[][] idArr = new int[9][9];
     int[][] initTable = new int[9][9];
     int id;
-    
+    Scene winScene;
     Scene playScene;
-    Sudoku s;
-    FileSudokuDao dao;
+    SudokuMain s;
+    SavingSudokuDao dao;
     int clockTime = 0;
     int minutes = 0;
     int[][] timeInfo = new int[2][2];
-    Text clock = new Text("00");
+    Text clock = new Text("00:00");
+    
+    String whatModeIsThis;
+    
+    Timeline timeline1;
+    Timeline timeline2;
 
     @Override
     public void init() {
-        s = new Sudoku();
-        dao = new FileSudokuDao();
+        s = new SudokuMain();
+        dao = new SavingSudokuDao();
 
     }
 
     @Override
-    public void start(Stage mainStage) {
+    public void start(Stage mainStage) throws IOException {
 
-        //login scene
+        
+        
+       
+        
+        //start scene
         StackPane startEle = new StackPane();
-
+        HBox scoreBox = new HBox();
+        Button newMode = new Button("New");
         Button easyMode = new Button("Easy");
         Button hardMode = new Button("Hard");
         Button loadGame = new Button("Load");
+        Text highScore = new Text("High scores: \n " + dao.loadHighScore());
+        highScore.setId("highscorelist");
+        clock.setId("titletext");
         VBox loginElements = new VBox();
         Pane baseGame = new Pane();
         baseGame.setMinHeight(740);
         baseGame.setMinWidth(1000);
         startEle.getChildren().add(baseGame);
+        loginElements.getChildren().add(newMode);
         loginElements.getChildren().add(easyMode);
         loginElements.getChildren().add(hardMode);
         loginElements.getChildren().add(loadGame);
         loginElements.setAlignment(Pos.CENTER);
+        scoreBox.getChildren().add(highScore);
+        scoreBox.setAlignment(Pos.CENTER_RIGHT);
+        startEle.getChildren().add(scoreBox);
         startEle.getChildren().add(loginElements);
 
         Scene startScene = new Scene(startEle);
@@ -106,10 +125,7 @@ public class SudokuUI extends Application implements ActionListener {
 
         mainStage.setResizable(false);
 
-        /*
-        String filePath = new File("src/main/resources").getAbsolutePath();
-        System.out.println(filePath); */
-
+        
         Image backgImg1 = new Image("background_sud.png");
         Image backgImg2 = new Image("background_sud_v2.png");
 
@@ -123,50 +139,67 @@ public class SudokuUI extends Application implements ActionListener {
         Background back2 = new Background(img3);
 
         startEle.setBackground(back1);
-
+        
+        newMode.setOnAction(e -> {
+            whatModeIsThis = "cust";
+            timeline1.play();
+            timeline2.play();
+            mainStage.setScene(playScene);
+            
+        });
+        
         easyMode.setOnAction(e -> {
-
+            System.out.println("nappi toimii");
             initTable = s.makeSudokuEasy();
-
+            whatModeIsThis = "easy";
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
                     TextField initField = (TextField) (base.getChildren().get(idArr[i][j] - 1).lookup("#child" + (idArr[i][j])));
                     if (initTable[i][j] != 0) {
                         initField.setText(String.valueOf(initTable[i][j]));
                         s.setSudoku(i, j, initTable[i][j]);
+                        initField.setDisable(true);
+                        initField.setOpacity(1);
                     } else {
                         initField.setText("");
                     }
                 }
             }
+            timeline1.play();
+            timeline2.play();
             mainStage.setScene(playScene);
+            
         });
 
         hardMode.setOnAction(e -> {
 
             initTable = s.makeSudokuHard();
-
+            whatModeIsThis = "hard";
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
                     TextField initField = (TextField) (base.getChildren().get(idArr[i][j] - 1).lookup("#child" + (idArr[i][j])));
                     if (initTable[i][j] != 0) {
                         initField.setText(String.valueOf(initTable[i][j]));
                         s.setSudoku(i, j, initTable[i][j]);
+                        initField.setDisable(true);
                     } else {
                         initField.setText("");
                     }
                 }
             }
+            timeline1.play();
+            timeline2.play();
             mainStage.setScene(playScene);
+            
         });
 
         loadGame.setOnAction(e -> {
 
             try {
-                table = dao.loadSudoku(1);
-                timeInfo = dao.loadSudoku(2);
+                table = dao.loadSudokuTable();
+                timeInfo = dao.loadSudokuTimer();
             } catch (IOException ex) {
-                Logger.getLogger(SudokuUI.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             for (int i = 0; i < 9; i++) {
@@ -184,7 +217,10 @@ public class SudokuUI extends Application implements ActionListener {
             System.out.println("Kello nyt:");
             System.out.println(minutes);
             System.out.println(clockTime);
+            timeline1.play();
+            timeline2.play();
             mainStage.setScene(playScene);
+            
         });
         ;
 
@@ -193,7 +229,7 @@ public class SudokuUI extends Application implements ActionListener {
         StackPane stack = new StackPane();
 
         Text title = new Text();
-        Text title2 = new Text();
+        
         title.setText("Sudoku");
         title.setId("titletext");
 
@@ -286,6 +322,7 @@ public class SudokuUI extends Application implements ActionListener {
 
         VBox buttons = new VBox();
 
+        Button chkBtn = new Button("Check");
         Button resetBtn = new Button("Reset");
         Button saveBtn = new Button("Save");
 
@@ -315,28 +352,51 @@ public class SudokuUI extends Application implements ActionListener {
                 try {
                     dao.saveSudoku(table, minutes, clockTime);
                 } catch (IOException ex) {
-                    Logger.getLogger(SudokuUI.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
 
-        //minutes = 0;
+        chkBtn.setOnAction((ActionEvent e) -> {
 
+            boolean isReady = false;
+            isReady = s.checkResult();
+            if (isReady) {
+                try {
+                    dao.saveResult(whatModeIsThis, minutes, clockTime);
+                    highScore.setText("");
+                    highScore.setText("High scores: \n " + dao.loadHighScore());
+                    
+                    
+                } catch (IOException ex) {
+                    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                minutes = 0;
+                clockTime = 0;
+                
+                timeline1.stop();
+                timeline2.stop();
+                mainStage.setScene(startScene);
+                
+            }
+        });
+
+        //minutes = 0;
         
-        clock.setFont(coolFont);
         //clockTime = 0;
 
-        Timeline timeline1 = new Timeline(new KeyFrame(
+        timeline1 = new Timeline(new KeyFrame(
                 Duration.millis(1000),
                 a -> tickClock()));
-        Timeline timeline2 = new Timeline(new KeyFrame(
+        timeline2 = new Timeline(new KeyFrame(
                 Duration.millis(60000),
                 a -> minutes++));
         timeline1.setCycleCount(Animation.INDEFINITE);
-        timeline1.play();
+        
         timeline2.setCycleCount(Animation.INDEFINITE);
-        timeline2.play();
+        
 
+        buttons.getChildren().add(chkBtn);
         buttons.getChildren().add(resetBtn);
         buttons.getChildren().add(saveBtn);
         buttons.getChildren().add(error);
@@ -348,22 +408,19 @@ public class SudokuUI extends Application implements ActionListener {
         playScene = new Scene(playElements);
         playScene.getStylesheets().add("custom.css");
 
-        /* mainStage.setScene(playScene);
-        mainStage.setMinHeight(740);
-        mainStage.setMinWidth(1000);
-        mainStage.setResizable(false); */
         mainStage.show();
 
     }
+
     /**
-     * Ensures the logic behind ticking of the clock, converts clockTime to 
+     * Ensures the logic behind ticking of the clock, converts clockTime to
      * seconds after the first minute has passed
      */
     public void tickClock() {
         if (clockTime > 600) {
-            
-            clock.setText(clockTime/60 + ":" + String.valueOf(clockTime % 60));
-            
+
+            clock.setText(clockTime / 60 + ":" + String.valueOf(clockTime % 60));
+
         }
         if (clockTime > 59) {
 

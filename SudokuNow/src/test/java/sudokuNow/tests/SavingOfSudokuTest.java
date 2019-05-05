@@ -8,29 +8,29 @@ package sudokuNow.tests;
 import java.io.IOException;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import sudokuNow.domain.Sudoku;
-import sudokuNow.dao.FileSudokuDao;
+import sudokuNow.domain.SudokuMain;
+import sudokuNow.dao.SavingSudokuDao;
 
 /**
  *
  * @author aknu
  */
-public class FileSudokuDaoTest {
+public class SavingOfSudokuTest {
     @Test
     public void tableGetsSavedTest() throws IOException {
-
-        FileSudokuDao dao = new FileSudokuDao();
         
-        Sudoku s1 = new Sudoku();
+        SavingSudokuDao dao = new SavingSudokuDao();
+        
+        SudokuMain s1 = new SudokuMain();
         s1.setSudoku(0, 0, 3);
         
         int[][] array1 = s1.getTable();
         dao.saveSudoku(array1, 0, 0);
         
         
-        int[][] array2 = dao.loadSudoku(1);
+        int[][] array2 = dao.loadSudokuTable();
         
         assertEquals(array1[0][0], array2[0][0]);
-
+        
     }
 }

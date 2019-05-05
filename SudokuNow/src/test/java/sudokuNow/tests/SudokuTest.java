@@ -3,7 +3,7 @@ package sudokuNow.tests;
 
 import java.io.IOException;
 import org.junit.Assert;
-import sudokuNow.domain.Sudoku;
+import sudokuNow.domain.SudokuMain;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class SudokuTest {
     @Test
     public void tableTest() {
 
-        Sudoku s = new Sudoku();
+        SudokuMain s = new SudokuMain();
         s.setSudoku(0, 0, 3);
 
         int[][] array = s.getTable();
@@ -32,7 +32,7 @@ public class SudokuTest {
     @Test
     public void checkSudokuHoriTest() {
 
-        Sudoku s = new Sudoku();
+        SudokuMain s = new SudokuMain();
         s.setSudoku(0, 0, 1);
         boolean result = s.checkSudoku(0, 1, 1);
 
@@ -42,7 +42,7 @@ public class SudokuTest {
     @Test
     public void checkSudokuVertTest() {
 
-        Sudoku s = new Sudoku();
+        SudokuMain s = new SudokuMain();
         s.setSudoku(7, 7, 1);
         boolean result = s.checkSudoku(8, 7, 1);
 
@@ -52,7 +52,7 @@ public class SudokuTest {
     @Test
     public void checkSudokuRectTest() {
 
-        Sudoku s = new Sudoku();
+        SudokuMain s = new SudokuMain();
         s.setSudoku(3, 3, 1);
         boolean result = s.checkSudoku(5, 5, 1);
 
@@ -63,7 +63,7 @@ public class SudokuTest {
     @Test
     public void checkSudokuEasyTest() {
         
-        Sudoku s = new Sudoku();
+        SudokuMain s = new SudokuMain();
         int[][] sudoEasy = {
             {0, 0, 0, 6, 0, 2, 0, 0, 7},
             {0, 7, 0, 0, 0, 0, 0, 4, 1},
@@ -83,7 +83,7 @@ public class SudokuTest {
     @Test
     public void checkSudokuHardTest() {
         
-        Sudoku s = new Sudoku();
+        SudokuMain s = new SudokuMain();
         int[][] sudoHard =  {
             {1, 2, 0, 0, 0, 0, 5, 0, 0}, 
             {0, 0, 6, 0, 0, 0, 0, 0, 0}, 
