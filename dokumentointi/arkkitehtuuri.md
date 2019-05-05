@@ -20,7 +20,8 @@ Kun käyttäjä syöttää sudokuun numeron, ohjelmakoodissa olevat EventListene
 Sovelluslogiikka muodostuu SudokuUI ja Sudoku -luokkien yhteispelistä. Kun käyttöliittymäkomponentti huomaa muutoksen, se kutsuu Sudoku-luokan tarkastusmetodia, jonka tarkastusten perusteella muodostetaan virheestä ilmoittava punainen ilmoitussymboli, jos taulussa on ristiriita. Tauluun lisääminen tapahtuu vasta tarkastusten jälkeen, sovelluslogiikan yksinkertaistamiseksi. Sudoku-luokka palauttaa taulukon, joka iteratiivisesti läpikäyden renderöidään uudestaan näkyviin pelaajalle.
 
 ## Tietojen pysyväistallennus
-Pelitaulukon tiedot tallennetaan save.xml tiedostoon "taulukkona", josta ne pelitilanteen ladatessa saadaan takaisin. Pakkauksen SudokuNow.dao luokka FileSudokuDao vastaa tietojen pysyäistallentamisesta.
+Pelitaulukon tiedot tallennetaan save.xml tiedostoon "taulukkona", josta ne pelitilanteen ladatessa saadaan takaisin. Tallennushetkellä kulunut aika tallennetaan time.xml tiedostoon, ratkaisuun käytetty aika highscore.xml tiedostoon. Pakkauksen SudokuNow.dao luokka SavingSudokuDao vastaa tietojen pysyäistallentamisesta.
+
 ### Pelitilanteen (numerot ja pelikello) tallentaminen
 Sovellus tallentaa pelin numerot ja pelatessa kuluneen ajan eri tiedostoihin.
 
@@ -30,6 +31,13 @@ Seuraavissa kuvissa esitetään sekvenssikaavioina muutama keskeinen pelitoiminn
 Oheinen kaavio kuvaa syötteen käsittelyä ohjelmassa
 <img src="https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/sequence_setSudoku.png?raw=true">
 
+Alla oleva kaavio kuvaa "Check" painikkeen painamisen jälkeiset tapahtumat
+<img src="https://github.com/VirtualAkseli/ot-harjoitustyo/blob/master/dokumentointi/_Check_%20-painikkeen%20painaminen%20(3).png?raw=true">
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
-TBA
+Ohjelmassa on muutama bugi.
+- Lista parhaista tuloksista tulostuu kahteen kertaa pelin valmistuttua
+- Jos merkin laittaa väärään paikkaan, ja tekee muutoksen muualle, alkuperäinen virhemerkki "unohtuu"
+- ylimääräinen "0" ilmestyy kymmenen minuutin pelaamisen jälkeen kelloelementin eteen
+
+Ohjelmassa on edelleen liian suuri ja sekalainen start-metodi. Lisäksi, käyttöliittymän kasaaminen olisi järkevää toteuttaa hieman keskitetymmin, vaikka useammassa metodissa.
